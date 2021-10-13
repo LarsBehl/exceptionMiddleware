@@ -5,6 +5,7 @@ namespace ExceptionMiddleware.Exceptions
         BadRequest = 40000,
         Unauthorized = 40100,
         RessourceNotFound = 40400,
-        UserNotFound = 40401
+        UserNotFound = 40401,
+        InternalServerError = 50000
     }
 }
