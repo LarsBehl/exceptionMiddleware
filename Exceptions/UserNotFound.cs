@@ -1,6 +1,6 @@
 namespace ExceptionMiddleware.Exceptions
 {
-    public class UserNotFoundException : AppException
+    public class UserNotFoundException : NotFoundException
     {
         private static readonly string DEFAULT_MESSAGE = "User not found";
 

@@ -1,6 +1,7 @@
 using System;
 using System.Threading.Tasks;
 using ExceptionMiddleware.Exceptions;
+using ExceptionMiddleware.Model;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -24,19 +25,21 @@ namespace ExceptionMiddleware
             }
         }
 
-        private Task HandleExceptionAsync(AppException e, HttpContext context)
+        private async Task HandleExceptionAsync(AppException e, HttpContext context)
         {
             ActionContext actionContext = new ActionContext()
             {
                 HttpContext = context
             };
 
-            // TODO implement
-            switch(e)
+            ErrorResponse resultContent = e.GetErrorObject();
+            IActionResult result = e switch
             {
-                default:
-                    throw new ArgumentException();
-            }
+                BadRequestException bre => new BadRequestObjectResult(resultContent),
+                _ => throw new ArgumentException()
+            };
+
+            await result.ExecuteResultAsync(actionContext);
         }
     }
 }
