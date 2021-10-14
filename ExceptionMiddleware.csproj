@@ -2,6 +2,17 @@
 
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
+    <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
+    <Version>1.0.0</Version>
+    <Authors>Lars B</Authors>
+    <Company>Lars B</Company>
+    <Title>ASP.NET Core Exception Middleware</Title>
+    <Description>
+      A package containing a Middleware (to be exact an IActionFilter) handling thrown Exceptions and creating the coresponding HTTP-Messages.
+      Several predefined Exceptions are available with the possibility of extension. Additionaly the used ErrorResponse-Schema can be added to
+      OpenAPI-Spec generation of Swashbuckle.
+    </Description>
+    <PackageTags>AspNetCore;WebApi;Exception;Middleware</PackageTags>
   </PropertyGroup>
 
   <ItemGroup>
