@@ -22,16 +22,7 @@ namespace ExceptionMiddleware
             if (context.Exception is AppException e)
             {
                 this._logger.LogInformation($"Handling exception: {e.Message}");
-                ErrorResponse resultContent = e.GetErrorObject();
-                IActionResult result = e switch
-                {
-                    BadRequestException bre => new BadRequestObjectResult(resultContent),
-                    UserNotFoundException unfe => new NotFoundObjectResult(resultContent),
-                    NotFoundException nfe => new NotFoundObjectResult(resultContent),
-                    UnauthorizedException uae => new UnauthorizedObjectResult(resultContent),
-                    _ => new InternalServerErrorObjectResult(resultContent)
-                };
-                context.Result = result;
+                context.Result = e.ResponseObject;
                 context.ExceptionHandled = true;
                 return;
             }
