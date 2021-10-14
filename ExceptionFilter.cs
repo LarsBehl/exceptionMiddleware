@@ -1,13 +1,11 @@
 using ExceptionMiddleware.Exceptions;
 using ExceptionMiddleware.Extensions;
-using ExceptionMiddleware.Model;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.Extensions.Logging;
 
 namespace ExceptionMiddleware
 {
-    public class ExceptionFilter : IActionFilter, IOrderedFilter
+    internal class ExceptionFilter : IActionFilter, IOrderedFilter
     {
         public int Order => int.MaxValue - 10;
         private ILogger<ExceptionFilter> _logger;
