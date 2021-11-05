@@ -29,6 +29,9 @@ services.AddSwaggerGen(c =>
 });
 ```
 
+### Note
+Please note that, if the controller method should be annotated with the `ProducesResponseType` attribute, the type `ErrorResponse` has to be specified explicitly in addition to the `StatusCode`, as extension constructors are not supported by `C#`. One possible solution could be extending the `ProducesResponseType` attribute and modifying the constructor to use the `ErrorResponse` object as the default type.
+
 ## Adding additional exceptions
 Even though the package already provides some exceptions that are commonly used when developing a Web-API, it is also possible to add additional exceptions for special use. The only issue is, that in `C#` it is not possible to extend an enum. This means that if you want to add the new error codes to the `OpenAPI` specification, they have to be added manually as seen in `ExceptionDocumentFilter.cs`.
 
