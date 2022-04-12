@@ -1,18 +1,21 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <TargetFramework>net6.0</TargetFramework>
     <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
-    <Version>1.0.1</Version>
+    <Version>1.0.2</Version>
     <Authors>Lars B</Authors>
     <Company>Lars B</Company>
     <Title>ASP.NET Core Exception Middleware</Title>
+
     <Description>
       A package containing a Middleware (to be exact an IActionFilter) handling thrown Exceptions and creating the coresponding HTTP-Messages.
       Several predefined Exceptions are available with the possibility of extension. Additionaly the used ErrorResponse-Schema can be added to
       OpenAPI-Spec generation of Swashbuckle.
     </Description>
     <PackageTags>AspNetCore;WebApi;Exception;Middleware</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
@@ -20,7 +23,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.2.2" />
+    <None Include="./LICENSE" Pack="true" PackagePath="" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.3.0" />
   </ItemGroup>
 
 </Project>
