@@ -25,6 +25,15 @@ internal class ExceptionFilter : IActionFilter, IOrderedFilter
             return;
         }
 
+        if (context.Exception is NotImplementedException nie)
+        {
+            this._logger.LogInformation($"Handling System.NotImplementedException");
+            NotImplementedErrorException niee = new NotImplementedErrorException(nie.Message);
+            context.Result = niee.ResponseObject;
+            context.ExceptionHandled = true;
+            return;
+        }
+
         if (context.Exception is not null && !context.ExceptionHandled)
         {
             this._logger.LogError("Unhandled exception; Returning InternalServerError");

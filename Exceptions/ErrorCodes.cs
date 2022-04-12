@@ -7,5 +7,6 @@ public enum ErrorCodes
     Forbidden = 40300,
     RessourceNotFound = 40400,
     UserNotFound = 40401,
-    InternalServerError = 50000
+    InternalServerError = 50000,
+    NotImplemented = 50100
 }

@@ -15,10 +15,15 @@
       OpenAPI-Spec generation of Swashbuckle.
     </Description>
     <PackageTags>AspNetCore;WebApi;Exception;Middleware</PackageTags>
+    <PackageLicenseFile>LICENSE</PackageLicenseFile>
   </PropertyGroup>
 
   <ItemGroup>
     <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="./LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>
