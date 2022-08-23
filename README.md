@@ -4,7 +4,7 @@ This project is a small extension for `ASP.NET Core` Applications, which provide
 ## Getting started
 After adding the package to an `ASP.NET Core` project
 ```
-dotnet add package Aspnetcore.ExceptionMiddleware --version 1.0.0
+dotnet add package Aspnetcore.ExceptionMiddleware
 ```
 the application can be configured to to use the exception middleware by adding the following code to method `ConfigureServices`, usually located in the `Startup.cs` file:
 ```c#
