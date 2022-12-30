@@ -1,3 +1,4 @@
+using ExceptionMiddleware.Extensions;
 using Microsoft.AspNetCore.Mvc;
 
 namespace ExceptionMiddleware.Exceptions;
@@ -6,7 +7,7 @@ public class ForbiddenException : AppException
 {
     private static readonly string TITLE = "Forbidden";
     private static readonly string DEFAULT_MESSAGE = "Forbidden to access resource";
-    public override IActionResult ResponseObject => throw new System.NotImplementedException();
+    public override IActionResult ResponseObject => new ForbiddenObjectResult(this.GetErrorObject());
 
     public ForbiddenException(string detailMessage, int errorCode) : base(TITLE, detailMessage, errorCode)
     {

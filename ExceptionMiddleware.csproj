@@ -3,6 +3,7 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
     <Version>1.1.0</Version>
     <Authors>Lars B</Authors>
