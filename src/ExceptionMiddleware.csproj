@@ -3,8 +3,9 @@
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
     <TargetFramework>net7.0</TargetFramework>
+    <Nullable>enable</Nullable>
     <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
-    <Version>1.0.4</Version>
+    <Version>1.1.0</Version>
     <Authors>Lars B</Authors>
     <Company>Lars B</Company>
     <Title>ASP.NET Core Exception Middleware</Title>
@@ -16,6 +17,8 @@
     </Description>
     <PackageTags>AspNetCore;WebApi;Exception;Middleware</PackageTags>
     <PackageLicenseFile>LICENSE</PackageLicenseFile>
+    <RepositoryUrl>https://github.com/LarsBehl/exceptionMiddleware</RepositoryUrl>
+    <RepositoryType>git</RepositoryType>
   </PropertyGroup>
 
   <ItemGroup>
@@ -23,7 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <None Include="./LICENSE" Pack="true" PackagePath="" />
+    <None Include="../LICENSE" Pack="true" PackagePath="" />
   </ItemGroup>
 
   <ItemGroup>

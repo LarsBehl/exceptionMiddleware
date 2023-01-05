@@ -1,9 +1,12 @@
 # Exception Middleware
+![Nuget Version](https://img.shields.io/nuget/v/Aspnetcore.ExceptionMiddleware)
+![Nuget downloads](https://img.shields.io/nuget/dt/Aspnetcore.ExceptionMiddleware)
+
 This project is a small extension for `ASP.NET Core` Applications, which provides the functionality to throw exceptions that are caught by a filter and translated to an error response. Additionally it is possible to add the `ErrorResponse` model and the additional 
 
 ## Getting started
 After adding the package to an `ASP.NET Core` project
-```
+```bash
 dotnet add package Aspnetcore.ExceptionMiddleware
 ```
 the application can be configured to to use the exception middleware by adding the following code to method `ConfigureServices`, usually located in the `Startup.cs` file:
@@ -18,6 +21,7 @@ with
 ```c#
 services.AddControllersWithExceptions();
 ```
+>Please note that this automatically replaces the errors sent on validation error with an `ErrorResponse` containing the appropriate content
 
 When using `Swashbuckle.AspNetCore` for swagger generation, the schema for `ErrorResponse` and the `ErrorCodes` can be added to the generated `OpenAPI` specification of the api by changing the configuration of the swagger generation:
 ```c#
@@ -27,6 +31,10 @@ services.AddSwaggerGen(c =>
 
   c.AddExceptions();
 });
+```
+In order to enable the application to automatically respond with an `ErrorResponse` if an error is encountered during parameter validation add the following line to the `Startup.cs` or application configuration:
+```c#
+services.AddValidationSupport();
 ```
 
 ### Note
