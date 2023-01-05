@@ -1,6 +1,6 @@
 # Exception Middleware
-![Nuget Version](https://img.shields.io/nuget/v/Aspnetcore.ExceptionMiddleware)
-![Nuget downloads](https://img.shields.io/nuget/dt/Aspnetcore.ExceptionMiddleware)
+[![Nuget Version](https://img.shields.io/nuget/v/Aspnetcore.ExceptionMiddleware)](https://www.nuget.org/packages/Aspnetcore.ExceptionMiddleware/)
+[![Nuget downloads](https://img.shields.io/nuget/dt/Aspnetcore.ExceptionMiddleware)](https://www.nuget.org/packages/Aspnetcore.ExceptionMiddleware/)
 
 This project is a small extension for `ASP.NET Core` Applications, which provides the functionality to throw exceptions that are caught by a filter and translated to an error response. Additionally it is possible to add the `ErrorResponse` model and the additional 
 
