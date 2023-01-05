@@ -1,11 +1,16 @@
 using System.Text;
 using ExceptionMiddleware.Exceptions;
+using ExceptionMiddleware.Model;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace ExceptionMiddleware.Extensions;
 
 public static class ServiceCollectionExtensions
 {
+    /// <summary>
+    /// Add support for MVC controllers, the ExceptionMiddleware and custom exceptions for validation errors to the <see cref="IServiceCollection"/> of the application
+    /// </summary>
+    /// <returns>An <see cref="IMvcBuilder"/> that can be used to further configure the MVC services</returns>
     public static IMvcBuilder AddControllersWithExceptions(this IServiceCollection services)
     {
         return services.AddControllers()
@@ -13,11 +18,19 @@ public static class ServiceCollectionExtensions
                        .AddValidationSupport();
     }
 
+    /// <summary>
+    /// Enables the ExceptionMiddleware
+    /// </summary>
+    /// <returns>An <see cref="IMvcBuilder"/> that can be used to further configure the MVC services</returns>
     public static IMvcBuilder AddExceptions(this IMvcBuilder builder)
     {
         return builder.AddMvcOptions(options => options.Filters.Add(new ExceptionFilter()));
     }
 
+    /// <summary>
+    /// Enables that an <see cref="ErrorResponse"/> is returned as the result of an validation error
+    /// </summary>
+    /// <returns>An <see cref="IMvcBuilder"/> that can be used to further configure the MVC services</returns>
     public static IMvcBuilder AddValidationSupport(this IMvcBuilder builder)
     {
         return builder.ConfigureApiBehaviorOptions(options =>
