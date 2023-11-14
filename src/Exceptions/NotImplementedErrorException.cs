@@ -10,12 +10,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// Instead of using this exception one can also use the <see cref="NotImplementedException"/>
 /// as they are also converted to a <see cref="NotImplementedObjectResult"/>
 /// </remarks>
-public class NotImplementedErrorException : AppException
+public class NotImplementedErrorException : AppException<NotImplementedObjectResult>
 {
     private static readonly string DEFAULT_MESSAGE = "NotImplemented";
     private static readonly string TITLE = "Not Implemented";
-
-    public override IActionResult ResponseObject => new NotImplementedObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code

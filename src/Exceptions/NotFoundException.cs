@@ -5,12 +5,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// <summary>
 /// Exception which is transformed to a NotFoundResponse by the <see cref="ExceptionFilter"/>
 /// </summary>
-public class NotFoundException : AppException
+public class NotFoundException : AppException<NotFoundObjectResult>
 {
     private static readonly string DEFAULT_MESSAGE = "Ressource not found";
     private static readonly string TITLE = "Not Found";
-
-    public override IActionResult ResponseObject => new NotFoundObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code

@@ -5,12 +5,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// <summary>
 /// Exception which is transformed to a BadRequestResponse by the <see cref="ExceptionFilter"/>
 /// </summary>
-public class BadRequestException : AppException
+public class BadRequestException : AppException<BadRequestObjectResult>
 {
     private static readonly string DEFAULT_MESSAGE = "BadRequest";
     private static readonly string TITLE = "Bad Request";
-
-    public override IActionResult ResponseObject => new BadRequestObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code

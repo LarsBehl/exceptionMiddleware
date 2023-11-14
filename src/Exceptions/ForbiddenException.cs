@@ -6,12 +6,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// <summary>
 /// Exception which is transformed to a ForbiddenResponse by the <see cref="ExceptionFilter"/>
 /// </summary>
-public class ForbiddenException : AppException
+public class ForbiddenException : AppException<ForbiddenObjectResult>
 {
     private static readonly string TITLE = "Forbidden";
     private static readonly string DEFAULT_MESSAGE = "Forbidden to access resource";
-
-    public override IActionResult ResponseObject => new ForbiddenObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code
