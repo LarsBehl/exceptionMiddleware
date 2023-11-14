@@ -6,12 +6,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// <summary>
 /// Exception which is transformed to an InternalServerErrorResponse by the <see cref="ExceptionFilter"/>
 /// </summary>
-public class InternalServerErrorException : AppException
+public class InternalServerErrorException : AppException<InternalServerErrorObjectResult>
 {
     private static readonly string TITLE = "Internal Server Error";
     private static readonly string DEFAULT_MESSAGE = "An unexpected Error occured";
-
-    public override IActionResult ResponseObject => new InternalServerErrorObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code

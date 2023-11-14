@@ -38,16 +38,18 @@ services.AddValidationSupport();
 ```
 
 ### Note
-Please note that, if the controller method should be annotated with the `ProducesResponseType` attribute, the type `ErrorResponse` has to be specified explicitly in addition to the `StatusCode`, as extension constructors are not supported by `C#`. One possible solution could be extending the `ProducesResponseType` attribute and modifying the constructor to use the `ErrorResponse` object as the default type.
+In order for the `ErrorResponse` to be shown in the `OpenAPI` specification as the error response an endpoint, one should annotate the Controller with the `ProducesErrorResponseType` attribute. While it is possible to use the `ProducesResponseType` or `ProducesResponseType<T>` attribute on a per method level, the margin of error is smaller when defining the error response type on a controller level.
 
 ## Adding additional exceptions
 Even though the package already provides some exceptions that are commonly used when developing a Web-API, it is also possible to add additional exceptions for special use. The only issue is, that in `C#` it is not possible to extend an enum. This means that if you want to add the new error codes to the `OpenAPI` specification, they have to be added manually as seen in `ExceptionDocumentFilter.cs`.
 
-The newly added Exception has to be derived from the class `AppException`, provided by this package. The class `AppException` is `abstract` and contains a single `abstract` property `ResponseObject`
-```c#
-public abstract IActionResult ResponseObject { get; }
-```
-all its other properties and methods are already implemented. Implementing the property is as simple as returning a new object of a type derived from `ObjectResult`. To add the value expected by the constructor, simply call the `GetErrorObject` method provided by `AppException`, which creates an instance of `ErrorResponse` containing the data of the exception. For further information have a look at `Exceptions/BadRequestException.cs`.
+The newly added Exception has to be derived from the class `AppException<T>`, provided by this package. The class `AppException<T>` is `abstract` but does not contain any abstract member. This is used to prevent users from throwing a raw `AppException<T>` by accident.
+
+The generic type of `AppException<T>` has a type-constraint, so that the given type has to be derived from `ObjectResult`. The given generic type is used for the error response and thus has impact, for example, on the status code.
 
 ## Additional features
-In addition to the previously mentioned features, the package also contains the definition of for `InternalServerErrorObjectResult` and `InternalServerErrorResult`.
+In addition to the previously mentioned features, the package also contains multiple type definitions for types derived from `ObjectResult`:
+* `ForbiddenObjectResult`
+* `InternalServerErrorObjectResult`
+* `InternalServerErrorResult`
+* `NotImplementedObjectResult`

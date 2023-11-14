@@ -2,10 +2,10 @@
 
   <PropertyGroup>
     <ImplicitUsings>enable</ImplicitUsings>
-    <TargetFramework>net7.0</TargetFramework>
+    <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
-    <Version>1.1.0</Version>
+    <Version>2.1.0</Version>
     <Authors>Lars B</Authors>
     <Company>Lars B</Company>
     <Title>ASP.NET Core Exception Middleware</Title>
@@ -30,7 +30,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.4.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" Version="6.5.0" />
   </ItemGroup>
 
 </Project>

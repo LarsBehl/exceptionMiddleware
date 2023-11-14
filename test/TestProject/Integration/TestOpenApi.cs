@@ -21,6 +21,7 @@ public class TestOpenApi
     public async Task TearDown()
     {
         await this._applicationFactory.DisposeAsync();
+        this._httpClient.Dispose();
     }
 
     [Test]

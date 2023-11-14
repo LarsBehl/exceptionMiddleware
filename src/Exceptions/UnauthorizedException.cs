@@ -5,12 +5,10 @@ namespace ExceptionMiddleware.Exceptions;
 /// <summary>
 /// Exception which is transformed to a UnauthorizedResponse by the <see cref="ExceptionFilter"/>
 /// </summary>
-public class UnauthorizedException : AppException
+public class UnauthorizedException : AppException<UnauthorizedObjectResult>
 {
     private static readonly string DEFAULT_MESSAGE = "Unauthorized";
     private static readonly string TITLE = "Unauthorized";
-
-    public override IActionResult ResponseObject => new UnauthorizedObjectResult(this.GetErrorObject());
 
     /// <summary>
     /// Constructor accepting a detailed error description and custom error code
