@@ -22,6 +22,7 @@ public class TestExceptions
     public async Task TearDown()
     {
         await this._applicationFactory.DisposeAsync();
+        this._httpClient.Dispose();
     }
 
     [TestCase("/test/badRequest", (int) ErrorCodes.BadRequest, HttpStatusCode.BadRequest)]
