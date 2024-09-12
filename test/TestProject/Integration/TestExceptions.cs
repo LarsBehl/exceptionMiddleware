@@ -34,6 +34,7 @@ public class TestExceptions
     [TestCase("/test/unauthorized", (int) ErrorCodes.Unauthorized, HttpStatusCode.Unauthorized)]
     [TestCase("/test/userNotFound", (int) ErrorCodes.UserNotFound, HttpStatusCode.NotFound)]
     [TestCase("/test/arbitrary", (int) ErrorCodes.InternalServerError, HttpStatusCode.InternalServerError)]
+    [TestCase("/test/conflict", (int)ErrorCodes.Conflict, HttpStatusCode.Conflict)]
     public async Task TestExplicitErrors(string path, int errorCode, HttpStatusCode statusCode)
     {
         HttpResponseMessage response = await this._httpClient.GetAsync(path);

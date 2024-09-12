@@ -81,4 +81,12 @@ public class TestController : ControllerBase
     {
         return Ok();
     }
+
+    [HttpGet("conflict")]
+    [ProducesDefaultResponseType]
+    [ProducesResponseType(StatusCodes.Status409Conflict)]
+    public ActionResult GetConflictException()
+    {
+        throw new ConflictException();
+    }
 }
