@@ -27,6 +27,10 @@ public enum ErrorCodes
     /// </summary>
     UserNotFound = 40401,
     /// <summary>
+    /// The requested resulted in a conflict
+    /// </summary>
+    Conflict = 40900,
+    /// <summary>
     /// While processing the request an unexcpected error occured
     /// </summary>
     InternalServerError = 50000,
