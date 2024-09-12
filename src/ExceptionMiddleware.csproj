@@ -5,7 +5,7 @@
     <TargetFramework>net8.0</TargetFramework>
     <Nullable>enable</Nullable>
     <PackageId>Aspnetcore.ExceptionMiddleware</PackageId>
-    <Version>2.1.0</Version>
+    <Version>2.2.0</Version>
     <Authors>Lars B</Authors>
     <Company>Lars B</Company>
     <Title>ASP.NET Core Exception Middleware</Title>
