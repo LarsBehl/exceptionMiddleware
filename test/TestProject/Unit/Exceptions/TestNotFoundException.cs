@@ -15,12 +15,12 @@ public class TestNotFoundException
         Assert.That(notFoundException.ErrorCode, Is.EqualTo((int) ErrorCodes.RessourceNotFound));
 
         NotFoundObjectResult? response = notFoundException.ResponseObject as NotFoundObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
-        Assert.That(content!.Title, Is.EqualTo(title));
+        Assert.That(content, Is.Not.Null);
+        Assert.That(content.Title, Is.EqualTo(title));
         Assert.That(content.DetailMessage, Is.EqualTo(defaultMessage));
         Assert.That(content.ErrorCode, Is.EqualTo((int) ErrorCodes.RessourceNotFound));
     }
@@ -33,12 +33,12 @@ public class TestNotFoundException
         Assert.That(notFoundException.ErrorCode, Is.EqualTo((int) ErrorCodes.RessourceNotFound));
 
         NotFoundObjectResult? response = notFoundException.ResponseObject as NotFoundObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
-        Assert.That(content!.DetailMessage, Is.EqualTo(detailMessage));
+        Assert.That(content, Is.Not.Null);
+        Assert.That(content.DetailMessage, Is.EqualTo(detailMessage));
         Assert.That(content.ErrorCode, Is.EqualTo((int) ErrorCodes.RessourceNotFound));
     }
 
@@ -50,12 +50,12 @@ public class TestNotFoundException
         Assert.That(notFoundException.ErrorCode, Is.EqualTo(errorCode));
 
         NotFoundObjectResult? response = notFoundException.ResponseObject as NotFoundObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
-        Assert.That(content!.DetailMessage, Is.EqualTo(detailMessage));
+        Assert.That(content, Is.Not.Null);
+        Assert.That(content.DetailMessage, Is.EqualTo(detailMessage));
         Assert.That(content.ErrorCode, Is.EqualTo(errorCode));
     }
 }
