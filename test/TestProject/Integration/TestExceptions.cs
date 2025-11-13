@@ -41,7 +41,7 @@ public class TestExceptions
         Assert.That(response.StatusCode, Is.EqualTo(statusCode));
         ErrorResponse? content = null;
         Assert.DoesNotThrowAsync(async () => content = await response.Content.ReadFromJsonAsync<ErrorResponse>());
-        Assert.NotNull(content);
+        Assert.That(content, Is.Not.Null);
         Assert.That(content!.ErrorCode, Is.EqualTo(errorCode));
     }
 
@@ -52,7 +52,7 @@ public class TestExceptions
         Assert.That(response.StatusCode, Is.EqualTo(HttpStatusCode.BadRequest));
         ErrorResponse? content = null;
         Assert.DoesNotThrowAsync(async () => content = await response.Content.ReadFromJsonAsync<ErrorResponse>());
-        Assert.NotNull(content);
+        Assert.That(content, Is.Not.Null);
         Assert.That(content!.ErrorCode, Is.EqualTo((int) ErrorCodes.BadRequest));
     }
 }
