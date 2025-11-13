@@ -15,11 +15,11 @@ public class TestBadRequestException
         Assert.That(badRequestException.ErrorCode, Is.EqualTo((int) ErrorCodes.BadRequest));
 
         BadRequestObjectResult? response = badRequestException.ResponseObject as BadRequestObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response!.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
+        Assert.That(content, Is.Not.Null);
         Assert.That(content!.DetailMessage, Is.EqualTo(defaultMessage));
         Assert.That(content.Title, Is.EqualTo(title));
         Assert.That(content.ErrorCode, Is.EqualTo((int) ErrorCodes.BadRequest));
@@ -33,11 +33,11 @@ public class TestBadRequestException
         Assert.That(badRequestException.ErrorCode, Is.EqualTo((int) ErrorCodes.BadRequest));
 
         BadRequestObjectResult? response = badRequestException.ResponseObject as BadRequestObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response!.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
+        Assert.That(content, Is.Not.Null);
         Assert.That(content!.DetailMessage, Is.EqualTo(detailMessage));
         Assert.That(content.ErrorCode, Is.EqualTo((int) ErrorCodes.BadRequest));
     }
@@ -50,11 +50,11 @@ public class TestBadRequestException
         Assert.That(badRequestException.ErrorCode, Is.EqualTo(errorCode));
 
         BadRequestObjectResult? response = badRequestException.ResponseObject as BadRequestObjectResult;
-        Assert.NotNull(response);
-        Assert.NotNull(response!.Value);
+        Assert.That(response, Is.Not.Null);
+        Assert.That(response!.Value, Is.Not.Null);
 
         ErrorResponse? content = response.Value as ErrorResponse;
-        Assert.NotNull(content);
+        Assert.That(content, Is.Not.Null);
         Assert.That(content!.DetailMessage, Is.EqualTo(detailMessage));
         Assert.That(content.ErrorCode, Is.EqualTo(errorCode));
     }

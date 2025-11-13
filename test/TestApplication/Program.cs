@@ -1,6 +1,5 @@
-using System.Reflection;
 using ExceptionMiddleware.Extensions;
-using Microsoft.OpenApi.Models;
+using Microsoft.OpenApi;
 
 namespace ExceptionMiddleware.Test.Application;
 
